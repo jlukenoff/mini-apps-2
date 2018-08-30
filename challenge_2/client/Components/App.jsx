@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Chart from './Chart/Chart';
 
 class App extends Component {
   constructor(props) {
@@ -6,25 +7,26 @@ class App extends Component {
     this.state = {
       currentIndex: '',
       currencyData: {},
+      startDate: '2018-01-01',
       ...props,
     };
+    this.getCurrencyData = this.getCurrencyData.bind(this);
   }
 
   componentDidMount() {
-
+    this.getCurrencyData();
   }
 
-  getCurrencyData(currentIndex, startDate = '2018-01-01') {
+  getCurrencyData(currentIndex = 'BTC', startDate = '2018-01-01') {
     fetch(`/api/${currentIndex}/from/${startDate}`)
       .then(chunk => chunk.json())
-      .then(result => this.setState({ currentIndex, currencyData: result.bpi }))
+      .then(result => this.setState({ currentIndex, currencyData: result.bpi, startDate }))
       .catch(err => console.error(`Error fetching data: ${err}`));
   }
 
   render() {
-    const { currencyData } = this.state;
     return (
-      <div>hello from react</div>
+      <Chart {...this.state} />
     );
   }
 }
