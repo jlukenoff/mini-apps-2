@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Bar } from 'react-chartjs-2';
-import moment from 'moment';
 
-const Chart = ({ currencyData, currentIndex, startDate }) => {
+const Chart = ({ currencyData, currentIndex, graphType }) => {
   const cfg = {
     type: 'bar',
     data: {
@@ -10,7 +9,7 @@ const Chart = ({ currencyData, currentIndex, startDate }) => {
       datasets: [{
         label: `${currentIndex}`,
         data: Object.values(currencyData),
-        type: 'line',
+        type: graphType,
         pointRadius: 0,
         fill: false,
         lineTension: 0,
@@ -19,6 +18,7 @@ const Chart = ({ currencyData, currentIndex, startDate }) => {
       }],
     },
     options: {
+      maintainAspectRatio: true,
       scales: {
         yAxes: [{
           scaleLabel: {
@@ -30,9 +30,11 @@ const Chart = ({ currencyData, currentIndex, startDate }) => {
     },
   };
   return (
-    <Bar
-      {...cfg}
-    />
+    <div style={{width:'70%', height:'auto' }}>
+      <Bar
+        {...cfg}
+      />
+    </div>
   );
 };
 
