@@ -1,0 +1,19 @@
+.search {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  width: 200px;
+  height: 30px;
+  font-size: 20px;
+  text-align: center;
+}
+
+button {
+  margin-top: 5px;
+  border: none;
+  border-color: none;
+  font-size: 20px;
+  cursor: pointer;
+}

@@ -1,0 +1,26 @@
+* {
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+.pagination {
+  display: inline-flex;
+  width: 30%;
+  list-style: none;
+  justify-content: space-between;
+  background-color: #1c94fa94;
+  padding: 10px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5%;
+}
+
+.currentPage {
+  background-color: red;
+  border-radius: 50%;
+}

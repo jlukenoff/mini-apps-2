@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Search.css';
 
 const Search = ({ submitSearch, handleInputChange }) => (
-  <div>
-    <input type="text" onChange={handleInputChange} />
+  <div className={styles.search}>
+    <input type="text" onChange={handleInputChange} className={styles.inputField} />
     <button type="button" onClick={submitSearch}>Search</button>
   </div>
 );

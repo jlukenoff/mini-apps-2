@@ -1,11 +1,11 @@
 const path = require('path');
 
-const ENTRY_POINT = path.resolve(__dirname, 'client/app.jsx');
+const ENTRY_POINT = path.resolve(__dirname, 'client/index.jsx');
 
 const OUTPUT_DIR = path.resolve(__dirname, 'public/');
 
 module.exports = {
-  entry: './client/app.jsx',
+  entry: ENTRY_POINT,
   output: {
     filename: 'bundle.js',
     path: OUTPUT_DIR,
